@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './App.scss';
+
+import Header from './components/header/Header';
+import PostList from './components/post-list/PostList';
+import BurgerMenu from './components/berger-menu/BurgerMenu';
+
+import {useWindowDimensions} from './hooks/useWindowDimensions'
+
 
 function App() {
+
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false)
+  const [search, setSearch] = useState('')
+
+  const isTablet = useWindowDimensions().width <= 766
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isTablet && <BurgerMenu isBurgerMenuOpen={isBurgerMenuOpen} onClose={() => setIsBurgerMenuOpen(false)}/>}
+      <Header onBurgerMenuOpen={() => setIsBurgerMenuOpen(true)} search={search} onChange={(event) => setSearch(event.target.value)}/>
+      <PostList search={search} />
     </div>
   );
 }

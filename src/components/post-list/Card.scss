@@ -1,0 +1,63 @@
+@import '../../index.scss';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 360px;
+
+    @include mobile-tablet {
+      width: 335px;
+    }
+  
+    &__image {
+      width: 100%;
+      overflow: hidden;
+  
+      img {
+        width: 100%;
+      }
+    }
+  
+    &__tag {
+      margin: 0;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      line-height: 0.8125rem;
+      color: rgba(235, 0, 40, 1);
+    }
+  
+    &__name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.875rem;
+      margin: 0;
+    }
+  
+    &__created-at {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 0.75rem;
+  
+      li {
+        color: rgba(155, 155, 155, 1);
+      }
+    }
+  
+    &__author {
+      margin: 0;
+    }
+  
+    &__description {
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.2rem;
+      color: rgba(155, 155, 155, 1);
+    }
+  }
+  

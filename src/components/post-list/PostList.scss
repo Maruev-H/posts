@@ -1,0 +1,13 @@
+@import "../../index.scss";
+
+.post-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 380 / 1920 * 100% 50px;
+
+  @include mobile-tablet {
+    padding: 0 20px;
+  }
+}
